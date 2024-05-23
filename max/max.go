@@ -1,17 +1,13 @@
 package max
 
-import (
-)
-
 func Max(x []int) int {
 	if len(x) == 0 {
 		return 0
 	}
-	max := x[0]
-	for _, number := range x {
-		if number > max {
-			max = number
+	for i := 0 ; i < len(x); i++{
+		if x[i] > x[0]{
+			x[0]=x[i]
 		}
 	}
-	return max
+	return x[0]
 }

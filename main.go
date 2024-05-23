@@ -14,11 +14,12 @@ func main() {
 	fmt.Println(max)
 	itoa  := itoa.Itoa(12345)
 	fmt.Println("Itoa", itoa)
+	fmt.Println(atoi)
 
 	//fmt.Println(CountNegative([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}))
     //fmt.Println(CountNegative([]int{-1, -2, -3, -4, -5, -6, -7, -8, -9, -10}))
     //fmt.Println(CountNegative([]int{}))
-    fmt.Println(CountNegative([]int{-1,2,0,-3}))
+    fmt.Println(CountNegative([]int{-1,2,0,-3,-5}))
 
 }
 

@@ -3,8 +3,8 @@ package main
 import "github.com/01-edu/z01"
 
 func main() {
-	for i := 'a'; i <= 'z'; i++ {
-		if i %2 == 0 {
+	for i := 'z'; i >= 'a'; i-- {
+		if i %2 == 1 {
 			j := i-32
 			z01.PrintRune(j)
 		} else {

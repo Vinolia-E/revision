@@ -1,33 +1,45 @@
 package main
 
 import (
+	//"fmt"
 	"os"
-	"strconv"
 
 	"github.com/01-edu/z01"
 )
 
 func main() {
 	args := os.Args[1:]
-	count := 0
-	// arg  := args[len(args)-1] // last rune
-	arg := args[0] // first rune
+	 //arg := args[0]
+	arg := args[len(args)-1]
 
-	for _, x := range arg {
-		z01.PrintRune(x)
+	for _, word := range arg {
+		z01.PrintRune(word)
 	}
 	z01.PrintRune('\n')
 
-	
-		for _, chr := range args {
-			for range chr {
-				count++
-			}
-		}
+	count := 0
 
-	str := strconv.Itoa(count)
-	for _, c := range str {
-		z01.PrintRune(c)
+	for _, x := range args {
+		for range x {
+			count++
+		}
+	}
+	//fmt.Println(count)
+	str := ""
+	startrune := '0'
+
+	if count != 0 {
+		mod := count%10
+		div := count/10
+		
+		for i := 0; i < mod; i++ {
+			startrune++
+		}
+		str += string(startrune)
+		count = div
+	}
+	for _, ch := range str {
+		z01.PrintRune(ch)
 	}
 	z01.PrintRune('\n')
 }
