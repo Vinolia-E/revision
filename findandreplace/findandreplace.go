@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	s1 := "hella"
-	s2 := "a"
-	s3 := "o"
+	// s1 := "hella"
+	// s2 := "a"
+	// s3 := "o"
+	s1 := os.Args[1]
+	s2 := os.Args[2]
+	s3 := os.Args[3]
 
 	str := ""
 
