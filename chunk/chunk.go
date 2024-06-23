@@ -12,23 +12,23 @@ func main() {
 }
 
 func Chunk(slice []int, size int) {
-	if size <= 0 {
+	if size == 0 {
 		fmt.Println()
 		return
 	}
-	// if len(slice) == 0 {
-	// 	fmt.Println([]int64{})
-	// 	return
-	// }
-	var chunk  [][]int
-	for i := 0; i < len(slice); i+=(size) {
-		
-		split := i + size
-		if split > len(slice) {
-			split = len(slice)
-		}
-		sub := slice[i:split]
-		chunk = append(chunk, sub)
+	if len(slice) == 0 {
+		fmt.Println([]int{})
+		return
 	}
-	fmt.Println(chunk)
+
+	var result [][]int
+	var chunk []int
+	for len(slice) >= size {
+		chunk, slice = slice[:size], slice[size:]
+		result = append(result, chunk)
+	}
+	if len(slice) > 0 {
+		result = append(result, slice[:])
+	}
+	fmt.Println(result)
 }

@@ -5,33 +5,33 @@ import (
 
 	"github.com/01-edu/z01"
 )
-
 func main() {
 	args := os.Args[1:]
+	s1 := args[0]
+	s2 := args[1]
+	index := 0
+	result := ""
+
 	if len(args) != 2 {
 		return
 	}
-	s1 := args[0]
-	s2 := []rune(args[1])
 
-	count := 0
-	str := ""
-
-	for _, cha := range s1 {
-		for i := count; i < len(s2); i++ {
-			text := s2[i]
-			if text == cha {
-				str += string(text)
-				count = i+1
+	for _, ch := range s2 {
+		for i := index; i < len(s1); i++ {
+			if ch == rune(s1[i]) {
+				result += string(ch)
+				index++
 				break
 			}
 		}
 	}
-	if str == s1 {
-		for _, ch := range str {
-			z01.PrintRune(ch)
-			z01.PrintRune('\n')
-		}
+	if len(result) == len(s1) {
+		for _, chr := range result {
+			z01.PrintRune(chr)
+		} 
+	} else {
+		return
 	}
-	//z01.PrintRune('\n')
+	
+	z01.PrintRune('\n')
 }

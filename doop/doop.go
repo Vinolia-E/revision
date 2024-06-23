@@ -44,7 +44,8 @@ func main() {
 	// 	fmt.Println("Heren")
 	// 	return
 	// }
-	fmt.Println(answer)
+	os.Stdout.WriteString(answer)
+	os.Stdout.WriteString("\n")
 }
 
 func Atoi(s string) int {
