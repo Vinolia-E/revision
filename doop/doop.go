@@ -16,7 +16,13 @@ func main() {
 	var calculation int
 	answer := ""
 
-	if operator == "+" {
+	if operator == "%" && s2 == "0" {
+		fmt.Println("No modulo by 0")
+		return
+	}else if operator == "/" && s2 == "0" {
+		fmt.Println("No division by 0")
+		return
+	}else if operator == "+" {
 		calculation = Atoi(s1) + Atoi(s2)
 		answer = Itoa(calculation) 
 	} else if operator == "-" {
@@ -31,19 +37,19 @@ func main() {
 	} else if operator == "/" {
 		calculation = Atoi(s1)/ Atoi(s2)
 		answer = Itoa(calculation)
-	} else {
+	}else {
 		return
 	}
 	//fmt.Println(calculation)
 	 
-	// if calculation < -9223372036854775807 {
-	// 	fmt.Println("there")
-	// 	return
-	// }
-	// if uint(calculation) > 9223372036854775807 {
-	// 	fmt.Println("Heren")
-	// 	return
-	// }
+	if calculation < -9223372036854775807 {
+		//fmt.Println("Overflow")
+		return
+	}
+	if uint(calculation) > 9223372036854775807 {
+		//fmt.Println("overflow")
+		return
+	}
 	fmt.Println(answer)
 }
 
@@ -64,7 +70,7 @@ func Atoi(s string) int {
 		// } else if ch == '+' && i == 0 {
 		// 	result = 1
 		// 	continue
-		//}
+		// }
 		if ch < '0' || ch > '9' {
 			os.Exit(0)
 		}
