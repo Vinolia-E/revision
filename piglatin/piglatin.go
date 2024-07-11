@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"os"
-)
+	"fmt"
+) 
 
 func main() {
 	if len(os.Args) != 2 {
@@ -12,24 +12,22 @@ func main() {
 	word := os.Args[1]
 
 	piglatin := Piglatin(word)
-	if piglatin == "" {
-		return
-	}
 	fmt.Println(piglatin)
 }
 
 func Piglatin(str string) string {
 	vowels := "aeiouAEIOU"
+	latin := "" 
 
 	for i, ch := range str {
 		for _, vowel := range vowels {
-			if ch == vowel { // ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' {
-				if i == 0 {
-					return str + "ay"
-				} else {
-					return string(str[i:]) + "ay" + string(str[:i])
-				}
-			}
+			if i == 0 && ch == vowel {
+				latin = str + "ay"
+				return latin
+			} else if ch == vowel {
+				latin = str[i:] + "ay" + str[:i]
+				return latin
+			} 
 		}
 	}
 	return ""

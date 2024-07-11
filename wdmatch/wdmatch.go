@@ -20,7 +20,7 @@ func main() {
 		for i := index; i < len(s1); i++ {
 			if ch == rune(s1[i]) {
 				result += string(ch)
-				index++
+				index = i+1
 				break
 			}
 		}
