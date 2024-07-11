@@ -69,7 +69,7 @@ func main(){
 	 num := 0
 
 	 for _, ch := range str{
-		if ch >= '0' || ch <= '9'{
+		if ch >= '0' && ch <= '9'{
 			num = num * 10 + int(ch - '0')
 		}else {
 			return

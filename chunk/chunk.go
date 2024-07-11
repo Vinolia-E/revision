@@ -12,6 +12,23 @@ func main() {
 }
 
 func Chunk(slice []int, size int) {
+	if size == 0 {
+		fmt.Println()
+		return
+	}
+	if len(slice) == 0 {
+		fmt.Println([]int{})
+		return
+	}
+
+	var result [][]int
+	var chunk []int
+	for len(slice) >= size {
+		chunk, slice = slice[:size], slice[size:]
+		result = append(result, chunk)
+	}
+	if len(slice) > 0 {
+		result = append(result, slice[:])
 	// if size <= 0 {
 	// 	fmt.Println()
 	// 	return
@@ -52,5 +69,5 @@ if len(slice) == 0 {
 		chunks := slice[i:div]
 		chunk = append(chunk, chunks)
 	}
-	fmt.Println(chunk)
+	fmt.Println(result)
 }

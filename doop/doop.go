@@ -42,14 +42,14 @@ func main() {
 	}
 	//fmt.Println(calculation)
 	 
-	if calculation < -9223372036854775807 {
-		//fmt.Println("Overflow")
-		return
-	}
-	if uint(calculation) > 9223372036854775807 {
-		//fmt.Println("overflow")
-		return
-	}
+	// if calculation < -9223372036854775807 {
+	// 	fmt.Println("there")
+	// 	return
+	// }
+	// if uint(calculation) > 9223372036854775807 {
+	// 	fmt.Println("Heren")
+	// 	return
+	// }
 	fmt.Println(answer)
 }
 

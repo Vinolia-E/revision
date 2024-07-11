@@ -21,7 +21,7 @@ func Rot13(str string)string{
 
 func main(){
 	fmt.Println(Rot13("HEY Alice you re 12345 Z"))
-	fmt.Println(Rot14("z Z n N"))
+	fmt.Println(Rot13("a Z n N"))
 }
 
 func Rot14(s string) string{
