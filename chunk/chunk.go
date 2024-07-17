@@ -71,3 +71,4 @@ if len(slice) == 0 {
 	}
 	fmt.Println(result)
 }
+}

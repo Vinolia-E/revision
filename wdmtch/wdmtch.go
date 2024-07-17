@@ -1,8 +1,10 @@
 package main
 
 import (
-	"fmt"
+	//"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
@@ -20,16 +22,18 @@ func main() {
 		for i := index; i < len(s1); i++ {
 			if ch == rune(s1[index]) {
 				result += string(ch)
-				index = i+1
+				index++
 				break
 			}
 		}
 	}
 	 if len(result) == len(s1) {
-	 	fmt.Println(result)
+		for _, ch := range result {
+			z01.PrintRune(ch)
+		}
+	 	//fmt.Println(result)
 	 } else {
-		//fmt.Println()
 		return
 	 }
-	//fmt.Println(result)
+	z01.PrintRune('\n')
 }

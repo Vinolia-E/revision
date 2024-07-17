@@ -9,10 +9,12 @@ import (
 )
 
 func main() {
-	args := os.Args[1]
 	if len(os.Args) != 2 {
 		os.Exit(0)
 	}
+
+	args := os.Args[1]
+	
 
 	num := Atoi(args) //, _ := strconv.Atoi(args)
 
@@ -43,6 +45,7 @@ func Rm(n int) (string, string) {
 	roman := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
 	values := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
 	cal := []string{"M", "(M-C)", "D", "(D-C)", "C", "(C-X)", "L", "XL", "X", "(X-I)", "V", "(V-I)", "I"}
+
 
 	for i, ch := range values {
 		for n >= ch {

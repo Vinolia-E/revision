@@ -34,9 +34,9 @@ func main() {
 		for i := len(str)-1; i >= 0; i--{
 			if rune(str[i]) != ' ' {
 				result = string(str[i]) + result
-			}else if result != ""{
+			 }else if result != ""{
 				break
-			}
+			 }
 		}
 		for _, c := range result{
 			z01.PrintRune(c)

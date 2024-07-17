@@ -20,8 +20,10 @@ func Rot13(str string)string{
 }
 
 func main(){
-	fmt.Println(Rot13("HEY Alice you re 12345 Z"))
+	fmt.Println(Rot14("HEY Alice you re 12345 Z"))
 	fmt.Println(Rot13("a Z n N"))
+	fmt.Println(Rot13("HEY Alice you re 12345 Z"))
+	fmt.Println(Rot10("HEY Alice you re 12345 Z"))
 }
 
 func Rot14(s string) string{
@@ -39,4 +41,20 @@ func Rot14(s string) string{
 		}
 	}
 	return output
+}
+
+func Rot10(s string) string {
+	result := ""
+	for _, ch := range s {
+		if ch >= 'a' && ch <= 'z' {
+			ch = (ch - 'a' + 10) %26 + 'a'
+			result += string(ch)
+		} else if ch >= 'A' && ch <= 'Z' {
+			ch = (ch - 'A' + 10)% 26 + 'A'
+			result += string(ch)
+		} else {
+			result += string(ch)
+		}
+	}
+	return result
 }

@@ -76,11 +76,11 @@ func Atoi(s string) int {
 		}
 		num = num*10 + uint(ch-'0')
 	}
-	if num > 9223372036854775807{
-		fmt.Println("Overflow")
-		os.Exit(0)
-	}
-	// fmt.Println(int(num) * result)
+	 if num > 9223372036854775807{
+	 	fmt.Println("Overflow")
+	 	os.Exit(0)
+	 }
+	 //fmt.Println(int(num) * result)
 	return int(num) * result
 }
 
