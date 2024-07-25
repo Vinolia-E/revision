@@ -41,13 +41,15 @@ func IsCapitalized(s string) bool {
 
 	for _, word := range sliced {
 		for i, chr := range word {
-			if i == 0 && chr >= 'a' {
+			if i == 0 && (chr >= 'a' && chr <= 'z') {
 				return false
 			}
 		}
 	}
 	return true
 }
+
+ 
 
 func SplitString(s string) []string{
 	str := ""
@@ -72,6 +74,25 @@ func SplitString(s string) []string{
 	return strSlice
 }
 
+// func Capitalize(s string) string {
+// 	//result := ""
+// 	words := SplitString(s)
+
+// 	for _, word := range words {
+// 		for i, ch := range word {
+// 			if i == 0 && (ch >= 'a' && ch <= 'z') {
+// 				ch = ch-32
+// 			} else if i != 0 && (ch >= 'A' && ch <= 'z') {
+// 				ch = ch+32
+// 			// } else {
+// 			// 	ch = ch
+// 			 }
+// 			//result += ch
+// 		}
+//    }
+//    return  s//result
+//}
+
 
 func main() {
 	fmt.Println(IsCapitalized("Hello! How are you?"))
@@ -80,4 +101,6 @@ func main() {
 	fmt.Println(IsCapitalized("Whatsthis4"))
 	fmt.Println(IsCapitalized("!!!!Whatsthis4"))
 	fmt.Println(IsCapitalized(""))
+	//fmt.Println(Capitalize("Hello! How are you?"))
+	//fmt.Println(Capitalize("Hello how aRE You"))
 }

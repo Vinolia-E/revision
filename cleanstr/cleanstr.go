@@ -31,6 +31,7 @@ import (
 func main() {
 	if len(os.Args) != 2 {
 		os.Stdout.WriteString("\n")
+		return
 	}
 
 	args := os.Args[1]
@@ -38,10 +39,11 @@ func main() {
 	sliced := []string{}
 
 	for i, ch := range args {
-		if ch == ' ' {
-			sliced = append(sliced, word)
-			word = ""
-			continue
+		 if ch == ' ' {
+		 	sliced = append(sliced, word)
+			//fmt.Println(sliced)
+		 	word = ""
+		 	continue
 		}
 		word += string(ch)
 		if i == len(args)-1 {
@@ -49,8 +51,8 @@ func main() {
 		}
 
 	}
-	fmt.Println(len(sliced))
-	fmt.Println(sliced)
+	//fmt.Println(len(sliced))
+	//fmt.Println(sliced)
 	str := ""
 	for _, words := range sliced {
 		if words != "" {
@@ -64,4 +66,25 @@ func main() {
 	} else {
 		fmt.Println(str)
 	}
-}
+
+// for i, ch := range str {
+// 	if ch == ' ' {
+// 		sliced = append(sliced, word)
+// 		 word = ""
+
+// 	}
+// 	if i == (len(str)-1) {
+// 		sliced = append(sliced, word)
+// 	}
+// 	word = word + string(ch)
+// }
+// fmt.Println( sliced)
+// result := ""
+// for _, strings := range sliced {
+// 	 if strings == " " {
+// 	 	continue
+// 	 }
+// 	result += strings
+// }
+// fmt.Println(result)
+ }
