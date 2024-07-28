@@ -38,18 +38,19 @@ package main
 import "fmt"
 
 func AdvancedSortWordArr(a []string, f func(a, b string) int) {
-
-	//var result []string
-	for _, ch := range a {
-		for f(ch) {
-
+	// var result []string
+	result := 0
+	for i := 0; i < len(a); i++ {
+		for j := 0; j < len(a); j++ {
+			result = f(a[i], a[j])
 		}
-	}
+		fmt.Print(result)
 
+	}
+	//fmt.Println(result)
 }
 
 func main() {
-
 	result := []string{"a", "A", "1", "b", "B", "2", "c", "C", "3"}
 	AdvancedSortWordArr(result, Compare)
 
@@ -58,10 +59,10 @@ func main() {
 
 func Compare(a, b string) int {
 	if a == b {
-		return 0 
+		return 0
 	} else if a > b {
 		return 1
-	} else{
+	} else {
 		return -1
 	}
 }

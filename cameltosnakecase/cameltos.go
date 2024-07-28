@@ -96,22 +96,22 @@ func CamelToSnakeCase(s string) string {
 		// 		result = ""
 		// 	}
 		// 	// i++
-		// }
-		for i , v := range s {
-			if IsUpper(v) && i != 0 {
-				if !IsUpper(rune(s[i+1])) { 
-					result = result + "_" + string(v)
-				} else {
-					result = result + string(v)
-				}
-			}else {
-				result = result + string(v)
-			} 
+		// } 		
+for i , v := range s {
+	if IsUpper(v) && i != 0 {
+		if !IsUpper(rune(s[i+1])) { 
+			result = result + "_" + string(v)
+		} else {
+			result = result + string(v)
 		}
-	} else {
-		return s
-	}
-	return result
+	}else {
+		result = result + string(v)
+	} 
+}
+} else {
+return s
+}
+return result
 }
 
 func Validatecamel(s string) bool {
@@ -119,8 +119,11 @@ func Validatecamel(s string) bool {
 		if !IsUpper(ch) && !IsLower(ch) {
 			return false
 		}
-		if i != 0 && IsUpper(ch) && i+1 != len(s)-1 && IsLower(rune(s[len(s)-1])) {
-			return true
+		if i == len(s)-1 && IsUpper(ch) {
+			return false
+		}
+		if IsUpper(ch) && IsUpper(rune(s[i+1])) {
+			return false
 		}
 		if i == len(s)-1 && IsUpper(ch) {
 			return false
