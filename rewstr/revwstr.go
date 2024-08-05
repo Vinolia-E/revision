@@ -20,3 +20,43 @@ $ go run . "" | cat-e
 $
 $*/
 
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+    if len(os.Args) != 2 {
+        return
+    }
+
+    str := os.Args[1]
+    s := ""
+    slice := []string{}
+
+    for i := len(str)-1; i >= 0; i-- {
+        if str[i] != ' ' {
+            s = string(str[i]) + s 
+        } else if str[i] == ' ' && s != "" {
+            slice = append(slice, s)
+            //fmt.Println(s)
+            s = ""
+        }
+        if i == 0 {
+            slice = append(slice, s)
+        }
+    }
+    //fmt.Println(slice)
+
+    result := ""
+
+    for _, word := range slice {
+        if result != "" {
+            result += " "
+        }
+        result += word
+    }
+    fmt.Println(result)
+}
