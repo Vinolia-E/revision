@@ -22,3 +22,32 @@ $
 $ go run . rien | cat -e
 $
 */
+
+package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	if len(os.Args) != 3 {
+		fmt.Println()
+		return
+	}
+
+	s1 := os.Args[1]
+	s2 := os.Args[2]
+	result := ""
+all := s1+s2
+	for _, ch := range all {
+		if strings.Contains(result, string(ch)) {
+			continue
+		}
+		if strings.Contains(all, string(ch)) {
+			result += string(ch)
+		}
+	}
+	fmt.Println(result)
+}
