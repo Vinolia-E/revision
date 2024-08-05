@@ -22,3 +22,55 @@ $ go run . | cat -e
 $
 $
 */
+
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	if len(os.Args) != 2 {
+		fmt.Println()
+		return
+	}
+	str := ""
+
+	args := os.Args[1]
+
+	revsplited := []string{}
+	splited := Split(args)
+	first := splited[0]
+	rest := splited[1:]
+
+	revsplited = append(revsplited, rest...)
+	revsplited = append(revsplited, first)
+	//fmt.Println(revsplited)
+
+	for _, word := range revsplited {
+		if str != "" {
+			str += " "
+		}
+		str += word
+	}
+	fmt.Println(str)
+}
+
+func Split(s string) []string {
+	word := ""
+	slice := []string{}
+
+	for i, ch := range s {
+		if ch != ' ' {
+			word += string(ch)
+		} else if ch == ' ' && word != "" {
+			slice = append(slice, word)
+			word = ""
+		}
+		if i == len(s)-1 {
+			slice = append(slice, word)
+		}
+	}
+	return slice
+}
