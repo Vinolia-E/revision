@@ -38,3 +38,49 @@ last second First$
 Invalid Output$
 $
 you! of all hello$*/
+
+package main
+
+import "fmt"
+
+func WordFlip(str string) string {
+	slice := []string{}
+	var word, result string
+
+	if len(str) < 1 {
+		return "Invalid Input,\n"
+	}
+	for i := len(str)-1; i >= 0; i-- {
+		if str[i] != ' ' {
+			word =string(str[i]) + word
+		} else if str[i] == ' ' && word != "" {
+			slice = append(slice, word)
+			word = ""
+		}
+		if i == 0 {
+			slice = append(slice, word)
+		}
+	}
+
+	for _, words := range slice {
+		if result != "" {
+			result += " "
+		}
+		result += words
+	}
+	if len(result) > 0 {
+		
+	}
+	return result + "\n"
+}
+
+func main() {
+	fmt.Print(
+		WordFlip("First second last"))
+	fmt.Print(
+		WordFlip(""))
+	fmt.Print(
+		WordFlip("     "))
+	fmt.Print(
+		WordFlip(" hello  all  of  you! "))
+}
