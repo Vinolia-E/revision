@@ -45,27 +45,56 @@ package main
 
 import "fmt"
 
-func RevConcatAlternate(slice1,slice2 []int) []int {
-	new := [] int{}
-	//result := []int{}
+func RevConcatAlternate(slice1, slice2 []int) []int {
+	new := []int{}
+	length1 := len(slice1)
+	length2 := len(slice2)
+	i := len(slice1) - 1
+	j := len(slice2) - 1
 
-	if len(slice1) == len(slice2) {
-		for i := len(slice1)-1; i >= 0; i -- {
-			for j := len(slice2)-1; j >= 0; j-- {
-				new = append(new, slice1[i], slice2[j])
-			}
+	// dif := len(slice1)- len(slice2)
+	for i >= 0 && j >= 0 {
+		if length1 > length2 {
+			new = append(new, slice1[i])
+			length1--
+			i--
+
+		} else if length2 > length1 {
+			new = append(new, slice2[j])
+			j--
+			length2--
+		} else {
+			new = append(new, slice1[i])
+			i--
+			length1--
 		}
 	}
+	for i >= 0 {
+		new = append(new, slice1[i])
+		i--
+	}
+	for j >= 0 {
+		new = append(new, slice2[j])
+		j--
+	}
+
 	return new
 }
 
 func main() {
-	fmt.Println(
-		RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6}))
-	// fmt.Println(
-	// 	RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6, 7, 8, 9}))
-	// fmt.Println(
-	// 	RevConcatAlternate([]int{1, 2, 3, 9, 8}, []int{4, 5}))
-	// fmt.Println(
-	// 	RevConcatAlternate([]int{1, 2, 3}, []int{}))
+	fmt.Println(RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6}))
+	fmt.Println(RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6, 7, 8, 9}))
+	fmt.Println(RevConcatAlternate([]int{1, 2, 3, 9, 8}, []int{4, 5}))
+	fmt.Println(RevConcatAlternate([]int{1, 2, 3}, []int{}))
 }
+
+// func main() {
+// 	// fmt.Println(
+// 	// 	RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6}))
+// 	// fmt.Println(
+// 	// 	RevConcatAlternate([]int{1, 2, 3}, []int{4, 5, 6, 7, 8, 9}))
+// 	fmt.Println(
+// 		RevConcatAlternate([]int{1, 2, 3, 9, 8}, []int{4, 5,6,7}))
+// 	// fmt.Println(
+// 	// 	RevConcatAlternate([]int{1, 2, 3}, []int{}))
+// }
